@@ -1,0 +1,18 @@
+def brute_force_string_match(teks, pola):
+    n = len(teks)
+    m = len(pola)
+
+    # Melakukan pencocokan dengan pergeseran pola
+    for i in range(n - m + 1):
+        j = 0
+        while j < m and teks[i + j] == pola[j]:
+            j += 1
+        if j == m:  # Jika seluruh pola cocok
+            return i  # Mengembalikan posisi kecocokan pertama
+    return -1  # Jika tidak ditemukan kecocokan
+
+# Contoh penggunaan
+teks = "INI CONTOH SIMPEL DARI YANG PALING SIMPEL"
+pola = "SIMPEL"
+hasil = brute_force_string_match(teks, pola)
+print("pola ditemukan di indeks ke:", hasil)
